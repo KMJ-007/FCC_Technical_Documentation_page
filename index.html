@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Documentation</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>CSS Documentation</header>
+        
+        <ul>
+            <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+            <li><a class="nav-link" href="#How_to_link_CSS_to_HTML">How to link CSS to HTML</a></li>
+            <li><a class="nav-link" href="#Selectors">Selectors</a></li>
+            <li><a class="nav-link" href="#Pseudo-classes">Pseudo-classes</a></li>
+            <li><a class="nav-link" href="#Pseudo-elements">Pseudo-elements</a></li>    
+            <li><a class="nav-link" href="#Comments">Comments</a></li>
+
+        </ul>
+    </nav>
+
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <article>
+                <p>CSS (an abbreviation of Cascading Style Sheets) is the language that we use to style an
+                    HTML file, and tell the browser how should it render the elements on the page.
+                    </p>
+                    <p>A CSS file contains several CSS rules.
+                    </p>
+                    <p>Each rule is composed by 2 parts:
+                    </p>
+                    <ul>
+                        <li>the <strong>selector</strong></li>
+                        <li>the <strong>declaration block</strong></li>
+                    </ul>
+                    <p>The selector is a string that identifies one or more elements on the page, following a special
+                        syntax that we'll soon talk about extensively.
+                        </p>
+                        <p>The declaration block contains one or more declarations, in turn composed by a property
+                            and value pair.
+                            </p>
+                            <p>Those are all the things we have in CSS.
+                            </p>
+            </article>
+        </section>
+<section class="main-section" id="How_to_link_CSS_to_HTML">
+    <header>How to link CSS to HTML</header>
+    <article>
+        <p>CSS is attached to an HTML page in different ways.
+        </p>
+        <h2>1: Using the
+           <span>link </span> 
+            tag
+           </h2>
+           <p>The
+            link
+            tag is the way to include a CSS file. This is the preferred way to use CSS as it's
+           intended to be used: one CSS file is included by all the pages of your site, and changing one
+           line on that file affects the presentation of all the pages in the site.
+           </p>
+           <p>To use this method, you add a
+            link
+            tag with the
+            href
+            attribute pointing to the CSS file you
+           want to include. You add it inside the
+            head
+            tag of the site (not inside the
+            body
+            tag):
+           </p>
+<p>
+
+    <code> &lt;link rel="stylesheet" type="text/css" href="myfile.css">
+    </code>
+</p>
+           <p>The
+            rel
+            and
+            type
+            attributes are required too, as they tell the browser which kind of file we
+           are linking to.
+           </p>
+           <h2>2: using the
+            style
+            tag
+           </h2>
+           <p>Instead of using the
+            link
+            tag to point to separate stylesheet containing our CSS, we can add
+           the CSS directly inside a
+            style
+            tag. This is the syntax:
+           </p>
+           <p>
+
+               <code>  &lt;style>
+                   ...our CSS...
+                   &lt;/style> </code>
+                   </p>
+                   <p>Using this method we can avoid creating a separate CSS file. I find this is a good way to
+experiment before "formalising" CSS to a separate file, or to add a special line of CSS just to a
+file.
+</p>
+<h2>3: inline styles
+</h2>
+<p>Inline styles are the third way to add CSS to a page. We can add a
+ style
+ attribute to any
+HTML tag, and add CSS into it.
+</p>
+<code>&lt;div style="">...&lt;/div>
+</code>
+
+    </article>
+
+</section>
+<section class="main-section" id="Selectors">
+    <header>Selectors</header>
+    <article>
+    <p>A selector allows us to associate one or more declarations to one or more elements on the
+page.
+</p>
+<h2>Basic selectors
+</h2>
+<p>Suppose we have a
+ p
+ element on the page, and we want to display the words into it using
+the yellow color.
+</p>
+<p>We can target that element using this selector
+ p
+ , which targets all the element using the
+ p
+tag in the page. A simple CSS rule to achieve what we want is:
+</p>
+
+<code>p {
+color: yellow;
+}
+</code>
+<p>Every HTML tag has a corresponding selector, for example:
+ div
+ ,
+ span
+ ,
+ img
+ .
+</p>
+<p>If a selector matches multiple elements, all the elements in the page will be affected by the
+change.
+</p>
+<p>There is one big difference between those two: inside an HTML document you can repeat the
+same
+ class
+ value across multiple elements, but you can only use an
+ id
+ once. As a
+corollary, using classes you can select an element with 2 or more specific class names,
+something not possible using ids.
+</p>
+<p>
+    Example using a class:
+    </p>
+<code>&lt;p class="dog-name">
+Roger
+&lt;/p>
+</code>
+<code>.dog-name {
+color: yellow;
+}
+</code>
+<p>Read more...... </p>
+    </article>
+</section>
+
+<section class="main-section" id="Pseudo-classes">
+    <header>Pseudo-classes</header>
+    <article>
+        
+<p>Pseudo classes are predefined keywords that are used to select an element based on its
+    state, or to target a specific child.
+    </p>
+    <p>They start with a single colon
+        :
+        .
+       </p>
+       <p>They can be used as part of a selector, and they are very useful to style active or visited links
+        for example, change the style on hover, focus, or target the first child, or odd rows. Very handy
+        in many cases.
+        </p>
+        <p>These are the most popular pseudo classes you will likely use:
+        </p>
+        <ul>
+        
+            <li><code>:active
+            </code>
+            </li>an element being activated by the user (e.g. clicked). Mostly used on
+            links or buttons
+            <li><code>:checked
+            </code></li> the default in a set of choices (like, option in a select or radio buttons)
+
+            <li><code>:disabled
+            </code></li>an element disabled
+
+            <li><code>:empty
+            </code></li>an element with no children
+
+            <li><code>:enabled
+            </code></li> an element that's enabled (opposite to
+            :disabled
+            )
+           
+            <li><code>:first-child
+                </code></li>the first child of a group of siblings
+                
+
+<li><code>:focus </code></li>
+ the element with focus
+ <li><code>:hover </code></li>
+ an element hovered with the mouse
+ <li><code>:last-child </code></li>
+ the last child of a group of siblings
+ <li><code>:link </code></li>
+ a link that's not been visited
+ <li><code>:not() </code></li>
+ any element not matching the selector passed. E.g.
+ <li><code></code>:not(span) </code></li>
+    <li><code>:nth-
+        child() </code></li>
+an element matching the specified position
+<li><code></code>:nth-last-
+    child() </code></li>
+an element matching the specific position, starting from the end
+<li><code>:only-child </code></li>
+ an element without any siblings
+ <li><code>:required </code></li>
+ a form element with the
+ <li><code>required </code></li>
+ attribute set
+represents the html element. It's like targeting
+ html
+ , but it's more
+ <li><code>:root </code></li>
+ specific. Useful in CSS Variables.
+ <li><code>:target </code></li>
+the element matching the current URL fragment (for inner navigation in
+the page)
+
+
+        </ul>
+    </article>
+    </section>
+    <section class="main-section" id="Pseudo-elements">
+<header>Pseudo-elements</header>
+<article>
+    <p>Pseudo-elements are used to style a specific part of an element.
+    </p>
+    <p>They start with a double colon
+        ::
+        .
+       </p>
+       <p>Here's the list of the pseudo-elements:
+    </p>
+       <ul>
+        <li><code>::after</code></li>
+        creates a pseudo-element after the element
+        <li><code>::before</code></li>
+        creates a pseudo-element before the element
+        <li><code>::first-letter</code></li>
+        can be used to style the first letter of a block of text
+        <li><code>::first-line</code></li>
+        can be used to style the first line of a block of text
+        <li><code>::selection</code></li>
+        targets the text selected by the user
+       
+       </ul>
+</article>
+    </section>
+    <section class="main-section" id="Comments">
+        <header>Comments</header>
+        <article>
+        <p>CSS gives you the ability to write comments in a CSS file, or in the
+ style
+ tag in the page
+header</p>
+<p>The format is the
+ /* this is a comment */
+ C-style (or JavaScript-style, if you prefer)
+comments.</p>
+<p>This is a multiline comment. Until you add the closing
+ */
+ token, the all the lines found after</p>
+ <p>the opening one are commented.</p>
+    <p>Example:</p>
+    <code>#name { display: block; } /* Nice rule! */
+        /* #name { display: block; } */
+        #name {
+        display: block; /*
+        color: red;
+        */
+        }
+        </code>
+        <p>CSS does not have inline comments, like
+            //
+            in C or JavaScript.
+           </p>
+           <p>Pay attention though - if you add
+            //
+            before a rule, the rule will not be applied, looking like the
+           comment worked. In reality, CSS detected a syntax error and due to how it works it ignored
+           the line with the error, and went straight to the next line.
+           </p>
+        </article>
+
+    </section>
+    <p>Want to Learn more
+
+        <a href="http://wikipedia.com/CSS"> click here</a>
+    </p>
+</body>
+<footer>
+    Made with ❤️ by Karan M Janthe
+</footer>
+    </main>
+</html>
